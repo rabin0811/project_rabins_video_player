@@ -1,0 +1,12 @@
+services:
+  rabins-video-player:
+    build: .
+    container_name: rabins-video-player
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./media:/app/media
+    environment:
+      - RVP_MEDIA_DIRS=["media"]
+    restart: unless-stopped
